@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
  * struct stack_s - doubly linked list representation of a stack or
@@ -47,19 +48,23 @@ typedef struct instruction_s
 /*util headers*/
 int isFile(const char *path);
 /*OPCODE headers*/
-void push(stack_t **head, unsigned int line_number);
-void pall(stack_t **head, unsigned int line_number);
-void pint(stack_t **head, unsigned int line_number);
-void pop(stack_t **head, unsigned int line_number);
-void swap(stack_t **head, unsigned int line_number);
-void add(stack_t **head, unsigned int line_number);
-void nop(stack_t **head, unsigned int line_number);
-void sub(stack_t **head, unsigned int line_number);
-void div(stack_t **head, unsigned int line_number);
-void mul(stack_t **head, unsigned int line_number);
-void mod(stack_t **head, unsigned int line_number);
-void pchar(stack_t **head, unsigned int line_number);
-void pstr(stack_t **head, unsigned int line_number);
-void rotl(stack_t **head, unsigned int line_number);
-void rotr(stack_t **head, unsigned int line_number);
+void _push(stack_t **head, unsigned int line_number);
+void _pall(stack_t **head, unsigned int line_number);
+void _pint(stack_t **head, unsigned int line_number);
+void _pop(stack_t **head, unsigned int line_number);
+void _swap(stack_t **head, unsigned int line_number);
+void _add(stack_t **head, unsigned int line_number);
+void _nop(stack_t **head, unsigned int line_number);
+void _sub(stack_t **head, unsigned int line_number);
+void _div(stack_t **head, unsigned int line_number);
+void _mul(stack_t **head, unsigned int line_number);
+void _mod(stack_t **head, unsigned int line_number);
+void _pchar(stack_t **head, unsigned int line_number);
+void _pstr(stack_t **head, unsigned int line_number);
+void _rotl(stack_t **head, unsigned int line_number);
+void _rotr(stack_t **head, unsigned int line_number);
+
+int exec_op(stack_t **head, unsigned int line_number, char *line_content, FILE *file);
+void free_stack(stack_t *head);
+extern int stack_value;
 #endif
