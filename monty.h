@@ -4,6 +4,11 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <stdarg.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
 
 /**
  * struct stack_s - doubly linked list representation of a stack or
@@ -37,4 +42,7 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/*Custom headers*/
+int isFile(const char *path);
 #endif
