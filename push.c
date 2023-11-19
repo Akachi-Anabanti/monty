@@ -9,7 +9,7 @@ void _push(stack_t **stack, unsigned int line_number)
 {
 	int n;
 
-	if (!isInteger(stack_mem.stack_value))
+	if (stack_mem.stack_value == NULL || !isInteger(stack_mem.stack_value))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
