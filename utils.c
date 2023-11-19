@@ -24,11 +24,11 @@ bool isInteger(char *str)
 	int len = strlen(str);
 	int i = 0;
 
-	(str[i] =='-') ? i++ : i;
+	(str[i] == '-') ? i++ : i;
 
 	for (; i < len; i++)
 	{
-		if(!isdigit(str[i]))
+		if (!isdigit(str[i]))
 			return (false);
 	}
 	return (true);

@@ -2,7 +2,7 @@
 
 /**
  * _pall - prints all the values of the stack
- * @head - pointer to head of the stack
+ * @head: pointer to head of the stack
  * @line_number: The line number of the file
  */
 void _pall(stack_t **head, unsigned int line_number)
@@ -15,7 +15,7 @@ void _pall(stack_t **head, unsigned int line_number)
 
 	temp = *head;
 
-	while(temp)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
