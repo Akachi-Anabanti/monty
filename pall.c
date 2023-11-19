@@ -20,4 +20,5 @@ void _pall(stack_t **head, unsigned int line_number)
 		printf("%d\n", temp->n);
 		temp = temp->next;
 	}
+	return;
 }

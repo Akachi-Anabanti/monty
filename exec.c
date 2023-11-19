@@ -15,7 +15,7 @@ int exec_op(stack_t **stack, unsigned int linenumber,
 	char *op;
 
 	instruction_t instructions[] = {
-		{"push", _push}, {"pall", _pall},
+		{"pall", _pall}, {"push", _push},
 		/**
 		 * {"pint", _pint}, {"pop", _pop},{"swap", _swap}, {"add", _add},
 		 * {"nop", _nop},

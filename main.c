@@ -2,6 +2,21 @@
 #include <stdio.h>
 
 /**
+ * isFile - checks if the argument is a file
+ * @path: path to file
+ * Return: 0 if not file
+ */
+int isFile(const char *path)
+{
+	struct stat path_stat;
+
+	stat(path, &path_stat);
+
+	return (S_ISREG(path_stat.st_mode));
+}
+stack_mem_t stack_mem;
+
+/**
  * main - entry point to the program
  * @ac: argument count
  * @av: argument vector
@@ -20,7 +35,7 @@ int main(int ac, char **av)
 	/*check the number of arguments*/
 	if (ac != 2)
 	{
-		fprintf(stderr, "Usage: monty file\n");
+		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	if (!isFile(av[1]))
@@ -31,7 +46,7 @@ int main(int ac, char **av)
 	file = fopen(av[1], "r");
 	if (file == NULL)
 	{
-		fprintf(stderr, "Error: can't open file %s\n", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (nread > 0)
@@ -40,8 +55,12 @@ int main(int ac, char **av)
 		nread = getline(&line_content, &size, file);
 		if (nread > 0)
 		{
-			exec_op(&stack, line_number, line_content, file);
-			line_number++;
+			if(exec_op(&stack, line_number, line_content, file) == 0)
+				line_number++;
+			else
+			{
+				break;
+			}
 		}
 		free(line_content);
 	}

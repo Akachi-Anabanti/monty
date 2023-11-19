@@ -1,6 +1,5 @@
 #include "monty.h"
 
-stack_mem_t stack_mem = {NULL};
 /**
  * _push - performs a push operation on a stack
  * @stack: The stack to manipulate
@@ -14,6 +13,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
+		return;
 	}
 	n = atoi(stack_mem.stack_value);
 	addnode(stack, n);
