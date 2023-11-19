@@ -12,9 +12,11 @@ char *stack_value;
 int main(int ac, char **av)
 {
 	stack_t *stack;
-	char line_content[1000];
+	char *line_content;
 	int line_number = 1;
 	FILE *file;
+	size_t size;
+	ssize_t nread = 1;
 
 	/*check the number of arguments*/
 	if (ac != 2)
@@ -33,10 +35,16 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(line_content, 1000, file) != NULL)
+	while (nread > 0)
 	{
-		exec_op(&stack, line_number, line_content, file);
-		line_number++;
+		line_content = NULL;
+		nread = getline(&line_content, &size, file);
+		if (nread > 0)
+		{
+			exec_op(&stack, line_number, line_content, file);
+			line_number++;
+		}
+		free(line_content);
 	}
 	fclose(file);
 	/*free_stack(stack);*/

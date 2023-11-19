@@ -48,7 +48,8 @@ typedef struct instruction_s
 int isFile(const char *path);
 bool isInteger(char *str);
 void addnode(stack_t **head, int n);
-char *getline(char *buffer, int size, FILE *stream);
+
+
 /*OPCODE headers*/
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);
