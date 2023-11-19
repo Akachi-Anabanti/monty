@@ -1,5 +1,8 @@
 #include "monty.h"
 #include <stdio.h>
+
+
+char *stack_value;
 /**
  * main - entry point to the program
  * @ac: argument count
@@ -45,6 +48,6 @@ int main(int ac, char **av)
 		free(line_content);
 	}
 	fclose(file);
-	free_stack(stack);
+	/*free_stack(stack);*/
 	return (0);
 }
