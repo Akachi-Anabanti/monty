@@ -14,7 +14,8 @@ int isFile(const char *path)
 
 	return (S_ISREG(path_stat.st_mode));
 }
-stack_mem_t stack_mem;
+
+stack_mem_t stack_mem = {NULL};
 
 /**
  * main - entry point to the program
@@ -55,12 +56,8 @@ int main(int ac, char **av)
 		nread = getline(&line_content, &size, file);
 		if (nread > 0)
 		{
-			if(exec_op(&stack, line_number, line_content, file) == 0)
-				line_number++;
-			else
-			{
-				break;
-			}
+			exec_op(&stack, line_number, line_content, file);
+			line_number++;
 		}
 		free(line_content);
 	}

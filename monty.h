@@ -63,8 +63,8 @@ void *_realloc(void *ptr, size_t old_size, size_t new_size);
 /*OPCODE headers*/
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_number);
-/*void _pint(stack_t **head, unsigned int line_number);
-void _pop(stack_t **head, unsigned int line_number);
+void _pint(stack_t **head, unsigned int line_number);
+/*void _pop(stack_t **head, unsigned int line_number);
 void _swap(stack_t **head, unsigned int line_number);
 void _add(stack_t **head, unsigned int line_number);
 void _nop(stack_t **head, unsigned int line_number);
@@ -78,7 +78,7 @@ void _rotl(stack_t **head, unsigned int line_number);
 void _rotr(stack_t **head, unsigned int line_number);
 */
 
-int exec_op(stack_t **head, unsigned int line_number, char *line_content, FILE *file);
+void exec_op(stack_t **head, unsigned int line_number, char *line_content, FILE *file);
 void free_stack(stack_t *head);
 
 #endif

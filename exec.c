@@ -8,16 +8,16 @@
  * @file: the file stream
  * Return: 0 is successful else 1
  */
-int exec_op(stack_t **stack, unsigned int linenumber,
+void exec_op(stack_t **stack, unsigned int linenumber,
 		char *line_content, FILE *file)
 {
 	size_t i = 0;
 	char *op;
 
 	instruction_t instructions[] = {
-		{"pall", _pall}, {"push", _push},
+		{"pall", _pall}, {"push", _push}, {"pint", _pint},
 		/**
-		 * {"pint", _pint}, {"pop", _pop},{"swap", _swap}, {"add", _add},
+		 * {"pop", _pop},{"swap", _swap}, {"add", _add},
 		 * {"nop", _nop},
 		 * {"sub", _sub},
 		 * {"div", _div}, {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
@@ -29,7 +29,7 @@ int exec_op(stack_t **stack, unsigned int linenumber,
 	op = strtok(line_content, " \n\t");
 
 	if (op && op[0] == '#')
-		return (0);
+		return;
 
 	/*Assign the value of the stack node*/
 	stack_mem.stack_value = strtok(NULL, " \n\t");
@@ -39,7 +39,7 @@ int exec_op(stack_t **stack, unsigned int linenumber,
 		if (strcmp(op, instructions[i].opcode) == 0)
 		{
 			instructions[i].f(stack, linenumber);
-			return (0);
+			return;
 		}
 		i++;
 	}
@@ -50,5 +50,4 @@ int exec_op(stack_t **stack, unsigned int linenumber,
 		fclose(file);
 		exit(EXIT_FAILURE);
 	}
-	return (1);
 }
