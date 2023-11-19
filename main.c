@@ -1,7 +1,6 @@
 #include "monty.h"
 #include <stdio.h>
 
-char *stack_value;
 /**
  * main - entry point to the program
  * @ac: argument count

@@ -32,7 +32,7 @@ int exec_op(stack_t **stack, unsigned int linenumber,
 		return (0);
 
 	/*Assign the value of the stack node*/
-	stack_value = strtok(NULL, " \n\t");
+	stack_mem.stack_value = strtok(NULL, " \n\t");
 
 	while (instructions[i].opcode && op)
 	{
