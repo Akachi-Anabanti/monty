@@ -12,7 +12,7 @@ char *stack_value;
 int main(int ac, char **av)
 {
 	stack_t *stack;
-	char line_content[MAX_LINE_SIZE];
+	char line_content[1000];
 	int line_number = 1;
 	FILE *file;
 
@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (getline(line_content, MAX_LINE_SIZE, file) != NULL)
+	while (getline(line_content, 1000, file) != NULL)
 	{
 		exec_op(&stack, line_number, line_content, file);
 		line_number++;

@@ -12,8 +12,6 @@
 #include <ctype.h>
 #include <stdbool.h>
 
-#define MAX_LINE_SIZE 1000
-
 /**
  * struct stack_s - doubly linked list representation of a stack or
  * queue
