@@ -11,7 +11,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
-
+#include <fcntl.h>
 /**
  * struct stack_s - doubly linked list representation of a stack or
  * queue
@@ -44,10 +44,20 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct stack_mem
+{
+	char *stack_value;
+} stack_mem_t;
+
+extern stack_mem_t stack_mem;
+
 /*util headers*/
 int isFile(const char *path);
 bool isInteger(char *str);
 void addnode(stack_t **head, int n);
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+void *_realloc(void *ptr, size_t old_size, size_t new_size);
+
 
 
 /*OPCODE headers*/
@@ -71,6 +81,4 @@ void _rotr(stack_t **head, unsigned int line_number);
 int exec_op(stack_t **head, unsigned int line_number, char *line_content, FILE *file);
 void free_stack(stack_t *head);
 
-/*global variable */
-extern char *stack_value;
 #endif
