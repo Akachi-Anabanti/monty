@@ -1,24 +1,18 @@
 #include "monty.h"
 /**
- * push - performs a push operation on a stack
+ * _push - performs a push operation on a stack
  * @stack: The stack to manipulate
- * @n: the number to add
+ * @line_number: the number to add
  */
-void push(stack_t **stack, unsigned int n)
+void _push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *temp;
+	int n;
 
-	temp =  malloc(sizeof(stack_t));
-	if (temp == NULL)
+	if (!isInteger(stack_value))
 	{
-		fprintf(stderr, "Error: malloc failed\n");
+		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	temp->n = n;
-	temp->next = NULL;
-	temp->prev = NULL;
-	if (stack == NULL || *stack == NULL)
-		*stack = temp;
-	temp->prev = *stack;
-	(*stack)->next = temp;
+	n = atoi(stack_value);
+	addnode(stack, n);
 }
