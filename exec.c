@@ -47,7 +47,6 @@ int exec_op(stack_t **stack, unsigned int linenumber,
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", linenumber, op);
 		fclose(file);
-		free(line_content);
 		exit(EXIT_FAILURE);
 	}
 	return (1);
