@@ -29,7 +29,10 @@ void exec_op(stack_t **stack, unsigned int linenumber,
 	op = strtok(line_content, " \n\t");
 
 	if (op && op[0] == '#')
+	{
+		linenumber--;
 		return;
+	}
 
 	/*Assign the value of the stack node*/
 	stack_mem.stack_value = strtok(NULL, " \n\t");
