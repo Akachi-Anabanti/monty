@@ -10,7 +10,7 @@ void _pint(stack_t **head, unsigned int line_number)
 	stack_t *aux;
 
 	aux = *head;
-	if (aux == NULL || !aux->n)
+	if (aux == NULL)
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);

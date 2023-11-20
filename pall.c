@@ -15,7 +15,7 @@ void _pall(stack_t **head, unsigned int line_number)
 	if (temp == NULL) /*|| !temp->n)*/
 		return;
 
-	while (temp->next)
+	while (temp)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;

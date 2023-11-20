@@ -26,7 +26,7 @@ stack_mem_t stack_mem = {NULL};
  */
 int main(int ac, char **av)
 {
-	stack_t *stack;
+	stack_t *stack = NULL;
 	char *line_content;
 	int line_number = 1;
 	FILE *file;
