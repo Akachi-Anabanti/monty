@@ -17,10 +17,9 @@ void exec_op(stack_t **stack, unsigned int linenumber,
 	instruction_t instructions[] = {
 		{"pall", _pall}, {"push", _push}, {"pint", _pint},
 		{"pop", _pop}, {"swap", _swap}, {"add", _add},
-		/**
-		 * {"nop", _nop},
-		 * {"sub", _sub},
-		 * {"div", _div}, {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
+		{"nop", _nop}, {"sub", _sub}, {"div", _div},
+	       /**
+		 * {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
 		 * {"pstr", _pstr}, {"rotl", _rotl}, {"rotr", _rotr},
 		 */
 		{NULL, NULL},
