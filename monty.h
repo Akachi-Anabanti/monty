@@ -70,10 +70,10 @@ void _add(stack_t **head, unsigned int line_number);
 void _nop(stack_t **head, unsigned int line_number);
 void _sub(stack_t **head, unsigned int line_number);
 void _div(stack_t **head, unsigned int line_number);
-/*
 void _mul(stack_t **head, unsigned int line_number);
 void _mod(stack_t **head, unsigned int line_number);
 void _pchar(stack_t **head, unsigned int line_number);
+/*
 void _pstr(stack_t **head, unsigned int line_number);
 void _rotl(stack_t **head, unsigned int line_number);
 void _rotr(stack_t **head, unsigned int line_number);
