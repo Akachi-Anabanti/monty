@@ -27,10 +27,10 @@ stack_mem_t stack_mem = {NULL};
 int main(int ac, char **av)
 {
 	stack_t *stack = NULL;
-	char *line_content;
+	char *line_content = NULL;
 	int line_number = 1;
 	FILE *file;
-	size_t size;
+	size_t size = 0;
 	ssize_t nread = 1;
 
 	/*check the number of arguments*/
@@ -41,7 +41,7 @@ int main(int ac, char **av)
 	}
 	if (!isFile(av[1]))
 	{
-		fprintf(stderr, "Error: %s is not a valid file.\n", av[1]);
+		fprintf(stderr, "Error: Can't open file %s.\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(av[1], "r");
@@ -62,6 +62,6 @@ int main(int ac, char **av)
 		free(line_content);
 	}
 	fclose(file);
-	/*free_stack(stack);*/
+	free_stack(stack);
 	return (0);
 }

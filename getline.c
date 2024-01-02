@@ -31,18 +31,21 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream)
 		{
 			new_line = _realloc(line, *n, *n * 2);
 			if (new_line ==  NULL)
+			{
+				free(line);
 				return (-1);
-			line = new_line;
-			*n *= 2;
+			}
+			line = new_line, *n *= 2;
 		}
-
 		line[i++] = c;
 		if (c == '\n')
 			break;
 	}
 	if (i == 0 && c == EOF)
+	{
+		free(line);
 		return (-1);
-	line[i] = '\0';
-	*lineptr = line;
+	}
+	line[i] = '\0', *lineptr = line;
 	return (i);
 }

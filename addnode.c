@@ -7,9 +7,8 @@
  */
 void addnode(stack_t **head, int n)
 {
-	stack_t *new_node, *temp;
+	stack_t *new_node;
 
-	temp = *head;
 	new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
@@ -17,10 +16,11 @@ void addnode(stack_t **head, int n)
 		fprintf(stderr, "Error: cannot malloc\n");
 		exit(EXIT_FAILURE);
 	}
-	if (temp)
-		temp->prev = new_node;
 	new_node->n = n;
 	new_node->next = *head;
 	new_node->prev = NULL;
+
+	if (*head != NULL)
+		(*head)->prev = new_node;
 	*head = new_node;
 }
