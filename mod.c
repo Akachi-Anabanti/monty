@@ -21,7 +21,7 @@ void _mod(stack_t **head, unsigned int line_number)
 	val1 = aux->n;
 	if (val1 == 0)
 	{
-		fprintf(stderr, "L%d division by zero\n", line_number);
+		fprintf(stderr, "L%d: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	val2 = aux->next->n;
